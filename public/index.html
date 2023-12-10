@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <h1>Chatting</h1>
+
+    <input type="text" placeholder="Please enter a text" id="message" />
+    <button id="btn" type="submit">Send message</button>
+
+    <!-- SOCKET INSTANTIATION - -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const btn = document.querySelector("#btn");
+      const text = document.querySelector("#message");
+
+      //   AGER BACKEND SE KOI MESSAGE KERKE EVENT AYE -
+      socket.on("message", (message) => console.log(message));
+
+      btn.addEventListener("click", (e) => {
+        // CHECKING CURRENT LOCATION -
+        navigator.geolocation.getCurrentPosition((pos) => console.log(pos));
+        const msg = text.value;
+
+        // SEND MESSAGE TO SERVER-SIDE -
+        socket.emit("user-message", msg);
+      });
+    </script>
+  </body>
+</html>
