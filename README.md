@@ -1,6 +1,6 @@
 # Socket.IO 
 
-Project Description: A real-time chat application using Socket.IO for seamless communication between users.
+A real-time web application framework for Node.js that enables bidirectional communication between clients and servers.
 
 ## Features
 - Real-time communication using Socket.IO
